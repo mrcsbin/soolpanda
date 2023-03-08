@@ -1,6 +1,6 @@
 import logo from "./logo.svg";
-import "./pages/datail.css";
-import ProductDetail2 from "./pages/ProductDetail";
+import "./pages/detail.css";
+import ProductDetail2 from "./pages/ProductDetail2 ";
 
 function App() {
   return <ProductDetail2 />;
