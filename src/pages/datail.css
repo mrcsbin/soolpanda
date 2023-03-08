@@ -1,0 +1,20 @@
+* {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+  box-sizing: border-box;
+  text-decoration: none;
+}
+
+#wrap {
+  width: 100%;
+  margin: 0 auto;
+}
+
+.leftside {
+  width: 75%;
+}
+.rightsie {
+  width: 20%;
+  background: pink;
+}

@@ -1,9 +1,9 @@
 import logo from "./logo.svg";
-import "./App.css";
-import ProductDetail from "./pages/ProductDetail";
+import "./pages/datail.css";
+import ProductDetail2 from "./pages/ProductDetail";
 
 function App() {
-  return <ProductDetail />;
+  return <ProductDetail2 />;
 }
 
 export default App;
