@@ -26,12 +26,16 @@ const ProductDetail = () => {
 
   const product = data.product1;
 
-  const [number, setnumber] = useState(0);
+  const [number, setnumber] = useState(1);
+
   const onClick = () => {
     setnumber(number + 1);
   };
+
   const onClick2 = () => {
-    setnumber(number - 1);
+    if (number > 1) {
+      setnumber(number - 1);
+    }
   };
 
   const pprice = number * product.price;
