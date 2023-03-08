@@ -1,0 +1,85 @@
+.InputForm {
+  border: 1px solid gray;
+  text-align: center;
+  padding: 20px;
+}
+
+.InputForm input,
+textarea {
+  margin-bottom: 20px;
+  width: 500px;
+  padding: 10px;
+}
+
+.InputForm textarea {
+  height: 150px;
+}
+
+.InputForm select {
+  width: 300px;
+  padding: 10px;
+  margin-bottom: 20px;
+}
+
+.image-container {
+  margin: 0 auto;
+  position: relative;
+  width: 500px;
+  border: 2px solid;
+  padding: 0 20px 20px 20px;
+}
+
+.images {
+  display: inline-block;
+  position: relative;
+  width: 100px;
+  height: 100px;
+  margin: 0;
+  padding: 0;
+}
+
+.delete-button {
+  padding: 0;
+  outline: none;
+  border: none;
+  background: none;
+  position: absolute;
+  right: 0;
+  top: 100;
+  cursor: pointer;
+}
+
+.add-button {
+  padding: 0;
+  outline: none;
+  border: none;
+  background: none;
+  cursor: pointer;
+  /* height: 200px; */
+}
+
+.submit-button {
+  cursor: pointer;
+  background: #707070;
+  border-radius: 20px;
+  border: 0;
+  width: 323px;
+  height: 102px;
+  font-size: 30px;
+  font-weight: 900;
+}
+
+.add-container {
+  /* display: flex; */
+  /* justify-content: center; */
+  /* width: 30px; */
+  margin: 0 auto;
+}
+
+.add {
+  margin: 0;
+  font-size: 20px;
+  height: 60px;
+  line-height: 3;
+  cursor: pointer;
+}
