@@ -2,7 +2,6 @@ import React, { useState, useEffect } from "react";
 import { useParams } from "react-router-dom";
 import ProductCardCategory from "../components/ProductCardCategory";
 import axios from "axios";
-import "../css/ProductCard.css";
 
 const ItemList = ({ search }) => {
   const [alcohol, setAlcohol] = useState();
@@ -12,7 +11,7 @@ const ItemList = ({ search }) => {
     const fetchData = async () => {
       setLoading(true);
       try {
-        const res = await axios.get("http://localhost:3002/product");
+        const res = await axios.get("http://localhost:8000/product");
         console.log(res.data);
         setAlcohol(
           res.data.filter(
@@ -36,7 +35,7 @@ const ItemList = ({ search }) => {
 
   // 대기 중일 때
   if (loading) {
-    return <>대기 중...</>;
+    return <div />;
   }
   // 아직 값이 설정되지 않았을 때
   if (!alcohol) {

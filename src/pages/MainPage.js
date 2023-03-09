@@ -1,10 +1,9 @@
 import React, { useState, useEffect } from "react";
-import { Container, Row, Col } from "react-bootstrap";
 import styled from "styled-components";
 import ProductCardMain from "../components/ProductCardMain";
-import Categories from "../Categories";
 import axios from "axios";
 import "../css/ProductCard.css";
+import { Container, Nav, Navbar, Row, Col } from "react-bootstrap";
 
 const Carousel = styled.div`
   background: url(https://d38cxpfv0ljg7q.cloudfront.net/content_images/contents_images-1663250259447-2.jpg);
@@ -36,7 +35,7 @@ const MainPage = () => {
     const fetchData = async () => {
       setLoading(true);
       try {
-        const res = await axios.get("http://localhost:8000/product");
+        const res = await axios.get("http://localhost:3002/product");
         setAlcohol(res.data);
         console.log(alcohol);
       } catch (e) {

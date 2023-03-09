@@ -2,14 +2,19 @@ import { useState, useEffect } from "react";
 import "../css/ProductCard.css";
 
 const Card = (props) => {
+  function addComma(num) {
+    var regexp = /\B(?=(\d{3})+(?!\d))/g;
+    return num.toString().replace(regexp, ",");
+  }
+  var productprice = addComma(props.alcohol.product_price);
   return (
     <div className="Cardblock">
       <div className="Imagebox">
         <img className="Productimage" src={props.alcohol.product_mainimage} />
       </div>
       <div className="Pname">{props.alcohol.product_name}</div>
-      <p>{props.alcohol.product_introduction}</p>
-      <p>{props.alcohol.product_price}</p>
+      <div className="Pintro">{props.alcohol.product_introduction}</div>
+      <div className="Pprice">{productprice} 원</div>
     </div>
   );
 };
@@ -54,8 +59,7 @@ const ProductCardMain = (props) => {
           더보기
         </button>
       </div>
-      {/* 중간나누기 */}
-      <br />
+
       <hr />
       <p style={{ textalign: "left", float: "left" }}>낮은 가격순</p>
       <p style={{ clear: "both" }}></p>
