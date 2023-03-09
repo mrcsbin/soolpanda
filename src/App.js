@@ -3,6 +3,7 @@ import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
 import styled from "styled-components";
 import CategoryPage from "./CategoryPage";
 import MainPage from "./MainPage";
+import SearchPage from "./SearchPage";
 import Header from "./Header";
 
 const Headerblock = styled.div`
@@ -23,6 +24,7 @@ function App() {
       <Routes>
         <Route path="/" exact={true} element={<MainPage />} />
         <Route path="/:category" element={<CategoryPage />} />
+        <Route path="/:search" element={<SearchPage />} />
       </Routes>
     </Router>
   );
