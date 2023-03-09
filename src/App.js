@@ -1,24 +1,33 @@
-import logo from './logo.svg';
-import './App.css';
+import React, { useState, useCallback } from "react";
+import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
+import styled from "styled-components";
+import CategoryPage from "./CategoryPage";
+import MainPage from "./MainPage";
+
+const Headerblock = styled.div`
+  display: flex;
+  padding: 1rem 1rem 0 1rem;
+  width: 768px;
+  margin: 0 auto;
+  @media screen and (max-width: 768px) {
+    width: 100%;
+    overflow-x: auto;
+  }
+`;
 
 function App() {
+  const Header = () => {
+    return <Headerblock></Headerblock>;
+  };
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <Router>
+      <Header />
+      <Routes>
+        <Route path="/" exact={true} element={<MainPage />} />
+        <Route path="/:category" element={<CategoryPage />} />
+      </Routes>
+    </Router>
   );
 }
 
