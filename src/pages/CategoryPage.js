@@ -1,10 +1,7 @@
 import React, { useState, useEffect } from "react";
-import styled from "styled-components";
 import { useParams } from "react-router-dom";
-import Categories from "../Categories";
 import ProductCardCategory from "../components/ProductCardCategory";
 import axios from "axios";
-import "../css/ProductCard.css";
 
 const ItemList = ({ category }) => {
   const [alcohol, setAlcohol] = useState();
@@ -27,7 +24,7 @@ const ItemList = ({ category }) => {
 
   // 대기 중일 때
   if (loading) {
-    return <div>대기 중...</div>;
+    return <div />;
   }
   // 아직 값이 설정되지 않았을 때
   if (!alcohol) {
@@ -35,7 +32,7 @@ const ItemList = ({ category }) => {
   }
 
   // 값이 유효할 때
-  return <ProductCardCategory key={alcohol.product_num} alcohol={alcohol} />;
+  return <ProductCardCategory key={alcohol.id} alcohol={alcohol} />;
 };
 
 const CategoryPage = () => {

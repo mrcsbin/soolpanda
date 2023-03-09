@@ -5,15 +5,27 @@ import ImageUploader from "../components/ImageUploader.js";
 import axios from "axios";
 
 const ProductForm = () => {
+  const now = new Date();
+
+  function getDateOnly(date) {
+    const year = date.getFullYear();
+    const month = date.getMonth() + 1; // getMonth()는 0~11 값을 반환하므로 1을 더해줍니다.
+    const day = date.getDate();
+
+    return `${year}-${month}-${day}`;
+  }
   const [productData, setProductData] = useState({
-    product_name: "",
     product_introduction: "",
+    product_date: getDateOnly(now),
+    product_mainimage: "",
     product_info: [],
+    product_name: "",
     product_category: "",
     product_percentage: "",
     product_volume: "",
     product_price: "",
     product_stock: "",
+    product_detailexp: "",
   });
 
   const handleSubmit = () => {
@@ -30,6 +42,13 @@ const ProductForm = () => {
     setProductData({
       ...productData,
       product_info: data,
+    });
+  };
+  const savemainDataHandler = (data) => {
+    console.log(data);
+    setProductData({
+      ...productData,
+      product_mainimage: data,
     });
   };
 
@@ -63,7 +82,7 @@ const ProductForm = () => {
           {/* 이미지 등록 */}
           <div className="test">
             {/* <ImageUploader /> */}
-            <ImageUploader maxFiles={1} onSaveData={saveDataHandler} />
+            <ImageUploader maxFiles={1} onSaveData={savemainDataHandler} />
           </div>
         </div>
 
@@ -159,7 +178,19 @@ const ProductForm = () => {
         </div>
         {/* 상품 상세? 소개?  */}
         <div>
-          <p>상품 상세</p>
+          <Input
+            type="textarea"
+            name="product_detailexp"
+            onSaveProductData={productDataHandler}
+          />
+
+          {/* <Input
+            label="Name"
+            name="name"
+            value={1}
+            onSaveProductData={productDataHandler}
+            style={{ width: "300px", height: "50px" }}
+          /> */}
         </div>
 
         {/* 저장 */}

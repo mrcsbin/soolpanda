@@ -9,8 +9,8 @@ const ImageUploader = (props) => {
   const [files, setFiles] = useState([]);
 
   const onDrop = (acceptedFiles, tmi) => {
-    if (acceptedFiles.length + no > 5) {
-      alert("최대 5장까지만 사진을 첨부할수 있습니다.");
+    if (acceptedFiles.length + no > props.maxFiles) {
+      alert(`최대 ${props.maxFiles}장까지만 사진을 첨부할수 있습니다.`);
       return;
     }
     const newFiles = [...files];
@@ -30,7 +30,7 @@ const ImageUploader = (props) => {
       reader.readAsDataURL(file);
     });
     if (tmi.length > 0) {
-      alert("5장미만의 사진만");
+      alert(`${props.maxFiles}장 미만의 사진만`);
     }
   };
 

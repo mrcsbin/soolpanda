@@ -43,7 +43,7 @@ function Button() {
   return (
     <div>
       <h1>Home</h1>
-      <Link to={`/updateform`} state={{ productData }}>
+      <Link to={`/update`} state={{ productData }}>
         수정하기
       </Link>
       <Link to={`/`} onClick={onClickHandler}>

@@ -1,80 +1,3 @@
-/* .Cardbox {
-  display: block;
-  margin: 0 auto;
-  padding: 0;
-  width: 80vw;
-}
-.Cardblock {
-  width: 250px;
-  height: 400px;
-  padding: 1rem;
-  border-radius: 22px;
-  display: block;
-  float: left;
-}
-.Cardblock:hover {
-  cursor: pointer;
-  background-color: #f7f7f7;
-  color: black;
-}
-.Cardblock:hover .Productimage {
-  transform: scale(1.05);
-  transition: all 0.8s;
-}
-.Cardblock:hover .Pname {
-  font-weight: 700;
-  transition: all 0.3s;
-}
-
-.Imagebox {
-  height: 250px;
-  width: 250px;
-  border-radius: 22px;
-  margin: 0;
-  overflow: hidden;
-}
-.Productimage {
-  height: 250px;
-  width: 250px;
-  object-fit: cover;
-}
-
-.Pname {
-  margin: 1rem 0;
-  font-family: "Noto Sans KR";
-  font-size: 1.2rem;
-  font-weight: 600;
-  color: #2f2f2f;
-  text-decoration: none;
-}
-
-.Morebutton {
-  -webkit-appearance: none;
-  -moz-appearance: none;
-  appearance: none;
-  margin: 44px 36vw;
-  padding: 0.5rem 1.5rem;
-  width: auto;
-  font-family: "Noto Sans KR";
-  font-size: 1rem;
-  font-weight: 400;
-  color: #2f2f2f;
-  text-align: center;
-  text-decoration: none;
-
-  background-color: white;
-  border: 1px solid #bababa;
-  border-radius: 20px;
-}
-
-.Morebutton:hover {
-  cursor: pointer;
-  background-color: #bababa;
-  color: white;
-  transition: all 0.3s;
-}
- */
-
 @import url(//fonts.googleapis.com/earlyaccess/notosanskr.css);
 @font-face {
   font-family: "NanumSquareNeo-Variable";
@@ -95,7 +18,6 @@
   height: 400px;
   padding: 1rem;
   border-radius: 22px;
-
   display: block;
   float: left;
 }
@@ -183,4 +105,5 @@
 hr {
   width: 80vw;
   border-top: 1px solid #e6e6e6;
+  margin: 0 auto;
 }

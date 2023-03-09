@@ -82,6 +82,7 @@ class Input extends PureComponent {
           ref={this.setRef}
           onChange={this.handleChange}
           onFocus={this.handleFocus}
+          rows={this.props.rows}
           // style={this.props.style}
         />
         {this.state.isInputError && errorMessage}
@@ -94,7 +95,7 @@ Input.propTypes = {
   label: PropTypes.string,
   name: PropTypes.string.isRequired,
   value: PropTypes.oneOfType([PropTypes.number, PropTypes.string]),
-  type: PropTypes.oneOf(["text", "password", "number", "price"]),
+  type: PropTypes.oneOf(["text", "password", "number", "price", "textarea"]),
   autoFocus: PropTypes.bool,
   errorMessage: PropTypes.string,
   onChange: PropTypes.func,

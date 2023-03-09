@@ -6,15 +6,26 @@ import { useLocation } from "react-router-dom";
 import ImageUploader from "../components/ImageUploader";
 
 const ProductUpdateForm = (props) => {
+  const now = new Date();
+  function getDateOnly(date) {
+    const year = date.getFullYear();
+    const month = date.getMonth() + 1; // getMonth()는 0~11 값을 반환하므로 1을 더해줍니다.
+    const day = date.getDate();
+    return `${year}-${month}-${day}`;
+  }
+
   const location = useLocation();
   const [productData, setProductData] = useState({
     product_name: location.state.productData.product_name || "",
+    product_mainimage: location.state.productData.product_mainimage,
     product_introduction: location.state.productData.product_introduction || "",
+    product_info: location.state.productData.product_info || [],
     product_info: location.state.productData.product_info || "",
     product_category: location.state.productData.product_category || "",
     product_percentage: location.state.productData.product_percentage || "",
     product_volume: location.state.productData.product_volume || "",
     product_price: location.state.productData.product_price || "",
+    product_detailexp: location.state.productData.product_detailexp || "",
     product_stock: location.state.productData.product_stock || "",
   });
 
@@ -169,8 +180,15 @@ const ProductUpdateForm = (props) => {
       {/* 아랫단 */}
       <div>
         {/* 상품 상세? 소개?  */}
+        <div className="test">
+          {/* <ImageUploader /> */}
+          <ImageUploader maxFiles={5} onSaveData={saveDataHandler} />
+        </div>
         <div>
-          <p>상품 상세</p>
+          <textarea
+            name="product_detailexp"
+            onSaveProductData={productDataHandler}
+          />
         </div>
 
         {/* 저장 */}

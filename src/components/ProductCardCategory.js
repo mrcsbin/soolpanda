@@ -1,5 +1,6 @@
 import { useState, useEffect } from "react";
 import "../css/ProductCard.css";
+import { NavLink } from "react-router-dom";
 
 const Card = (props) => {
   function addComma(num) {
@@ -10,7 +11,13 @@ const Card = (props) => {
   return (
     <div className="Cardblock">
       <div className="Imagebox">
-        <img className="Productimage" src={props.alcohol.product_mainimage} />
+        <NavLink to={`/products/${props.alcohol.id}`} state={{ props }}>
+          <img
+            className="Productimage"
+            src={props.alcohol.product_mainimage}
+            alt=""
+          />
+        </NavLink>
       </div>
       <div className="Pname">{props.alcohol.product_name}</div>
       <div className="Pintro">{props.alcohol.product_introduction}</div>
@@ -23,7 +30,6 @@ const ProductCardCategory = (props) => {
   // 전체 데이터 중 어디까지 잘라서 보여줄지 - 함수
   const [countMore, setCountMore] = useState(8); //배열 중 몇번째까지
   const [sliced, setSliced] = useState([]); //잘라서 저장
-
   /* Countmore이 onClick 안에서 바뀌면 재렌더링 됨 */
   useEffect(() => {
     setSliced(props.alcohol.slice(0, countMore));

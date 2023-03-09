@@ -1,16 +1,25 @@
 import { useState, useEffect } from "react";
+import { NavLink } from "react-router-dom";
+
 import "../css/ProductCard.css";
 
 const Card = (props) => {
   function addComma(num) {
     var regexp = /\B(?=(\d{3})+(?!\d))/g;
+    // console.log(props.alcohol.product_mainimage);
     return num.toString().replace(regexp, ",");
   }
   var productprice = addComma(props.alcohol.product_price);
   return (
     <div className="Cardblock">
       <div className="Imagebox">
-        <img className="Productimage" src={props.alcohol.product_mainimage} />
+        <NavLink to={`/products/${props.alcohol.id}`} state={{ props }}>
+          <img
+            className="Productimage"
+            src={props.alcohol.product_mainimage}
+            alt=""
+          />
+        </NavLink>
       </div>
       <div className="Pname">{props.alcohol.product_name}</div>
       <div className="Pintro">{props.alcohol.product_introduction}</div>
@@ -26,6 +35,7 @@ const ProductCardMain = (props) => {
   /* CountmoreNew가 onClick 안에서 바뀌면 재렌더링 됨 */
   useEffect(() => {
     setSliceNew(props.alcohol.slice(0, countMoreNew));
+    // console.log(props.alcohol);
   }, [countMoreNew]);
 
   /* 위와 동일함 - only difference : 인기상품용 */

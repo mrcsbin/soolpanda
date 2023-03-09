@@ -1,148 +1,92 @@
 import React, { useState, useEffect } from "react";
-import { useNavigate, useParams } from "react-router-dom";
+import { useNavigate, useParams, useLocation, Link } from "react-router-dom";
 import "../css/ProductDetail.css";
 import axios from "axios";
 
-const ProductDetail = () => {
+const ProductDetail = (props) => {
   // 주소 props로 제품명이나 제품 넘버를 전달 받고, DB에서 검색하여 화면에 뿌려주는 방식으로 설계를 해볼 생각입니다.
 
-  const params = useParams(); //
-  const id = [params.id];
+  const location = useLocation();
+  const [productData, setProductData] = useState({
+    product_name: location.state.props.alcohol.product_name || "",
+    product_introduction:
+      location.state.props.alcohol.product_introduction || "",
+    product_mainimage: location.state.props.alcohol.product_mainimage || "",
+    product_category: location.state.props.alcohol.product_category || "",
+    product_percentage: location.state.props.alcohol.product_percentage || "",
+    product_volume: location.state.props.alcohol.product_volume || "",
+    product_price: location.state.props.alcohol.product_price || "",
+    product_stock: location.state.props.alcohol.product_stock || "",
+  });
+
   const navigate = useNavigate();
-  const [data, setData] = useState([]);
 
-  const getList = () => {
+  const deleteHandler = () => {
     axios
-      .get("http://localhost:8000/products", {})
+      .delete(
+        `http://localhost:8000/product/${location.state.props.alcohol.id}`
+      )
       .then((Response) => {
-        //server.js의 응답결과를 res에 저장합니다.
-        console.log("getlist 리스폰스 ==>", Response);
-        const { data } = Response; // data = res.data속성
-        setData(data[id]);
-        console.log("getlist 데이터==>", data[id]);
+        console.log(Response);
       })
-      .catch((e) => {
-        console.error(e);
+      .catch((Error) => {
+        console.log(Error);
       });
   };
 
-  const deleteList = () => {
-    axios
-      .delete("http://localhost:8000/product/")
-      .then((res) => {
-        console.log("삭제리스트 리스폰스", res);
-        navigate("/");
-      })
-      .catch((error) => {
-        console.log("삭제할 데이터가 존재하지 않습니다.", error);
-      });
-  };
+  console.log(productData.product_mainimage);
+  console.log(productData.product_mainimage);
+  console.log(productData.product_mainimage);
+  console.log(productData.product_mainimage[0].base64Image);
 
-  useEffect(() => {
-    getList();
-  }, []);
-
-  console.log("배열=", data);
-
-  const {
-    product_name,
-    product_category,
-    product_percentage,
-    product_volume,
-    product_price,
-    product_mainimage,
-  } = data;
-
-  const [number, setnumber] = useState(1);
+  const [number, setNumber] = useState(1);
 
   const onClick = () => {
-    setnumber(number + 1);
+    setNumber(number + 1);
   };
 
   const onClick2 = () => {
     if (number > 1) {
-      setnumber(number - 1);
+      setNumber(number - 1);
     } else {
       alert("갯수는 0이하로 입력할 수 없습니다.");
     }
   };
 
-  const pprice = (number * product_price)
+  const pprice = (number * productData.product_price)
     .toString()
     .replace(/\B(?=(\d{3})+(?!\d))/g, ",");
 
-  const formattedNumber = (1 * product_price)
+  const formattedNumber = (1 * productData.product_price)
     .toString()
     .replace(/\B(?=(\d{3})+(?!\d))/g, ",");
 
   return (
     <div id="wrap">
       <main className="left">
-        <div className="section">
-          <input type="radio" name="slide" id="slide01" checked />
-          <input type="radio" name="slide" id="slide02" />
-          <input type="radio" name="slide" id="slide03" />
-          <div className="slidewrap">
-            <ul className="slidelist">
-              <li>
-                <span>
-                  <label for="slide03" className="left"></label>
-                  <img
-                    src={product_mainimage}
-                    alt="이미지1"
-                    onError={(e) =>
-                      (e.target.src = "https://via.placeholder.com/400")
-                    }
-                  />
-                  <label for="slide02" className="right"></label>
-                </span>
-              </li>
-              <li>
-                <span>
-                  <label for="slide01" className="left"></label>
-                  <img
-                    src={product_mainimage}
-                    alt="이미지2"
-                    onError={(e) =>
-                      (e.target.src = "https://via.placeholder.com/400")
-                    }
-                  />
-                  <label for="slide03" className="right"></label>
-                </span>
-              </li>
-              <li>
-                <span>
-                  <label for="slide02" className="left"></label>
-                  <img
-                    src={product_mainimage}
-                    alt="이미지3"
-                    onError={(e) =>
-                      (e.target.src = "https://via.placeholder.com/400")
-                    }
-                  />
-                  <label for="slide01" className="right"></label>
-                </span>
-              </li>
-            </ul>
-          </div>
-        </div>
+        <img
+          src={productData.product_mainimage[0].base64Image}
+          alt="이미지1"
+          onError={(e) => (e.target.src = "https://via.placeholder.com/400")}
+        />
+
         <br />
         <br />
         <h3>상세설명</h3>
         <div>
           <div>
             <img
-              src={product_mainimage}
+              src={productData.product_mainimage}
               alt="이미지1"
               onError={(e) =>
                 (e.target.src = "https://via.placeholder.com/400")
               }
             />
           </div>
-          제품 설명란 입니다.
+          <p>{productData.product_detailexp}</p>
           <div>
             <img
-              src={product_mainimage}
+              src={productData.product_mainimage}
               alt="이미지2"
               onError={(e) =>
                 (e.target.src = "https://via.placeholder.com/400")
@@ -152,7 +96,7 @@ const ProductDetail = () => {
           제품 설명란 입니다.
           <div>
             <img
-              src={product_mainimage}
+              src={productData.product_mainimage}
               alt="이미지3"
               onError={(e) =>
                 (e.target.src = "https://via.placeholder.com/400")
@@ -162,7 +106,7 @@ const ProductDetail = () => {
           제품 설명란 입니다.
           <div>
             <img
-              src={product_mainimage}
+              src={productData.product_mainimage}
               alt="이미지4"
               onError={(e) =>
                 (e.target.src = "https://via.placeholder.com/400")
@@ -172,7 +116,7 @@ const ProductDetail = () => {
           제품 설명란 입니다.
           <div>
             <img
-              src={product_mainimage}
+              src={productData.product_mainimage}
               alt="이미지5"
               onError={(e) =>
                 (e.target.src = "https://via.placeholder.com/400")
@@ -184,13 +128,19 @@ const ProductDetail = () => {
       </main>
       <aside className="right">
         <div class="title">
-          <h2 className="name">product_name</h2>
-          <p className="coment">부설명</p>
+          <h2 className="name">{productData.product_name}</h2>
+          <p className="coment">부설명{productData.product_introduction}</p>
         </div>
         <ul>
-          <li className="type">주종&nbsp;:&nbsp;{product_category}</li>
-          <li className="percent">도수&nbsp;:&nbsp;{product_percentage}%</li>
-          <li className="capacity">용량&nbsp;:&nbsp;{product_volume}ml</li>
+          <li className="type">
+            주종&nbsp;:&nbsp;{productData.product_category}
+          </li>
+          <li className="percent">
+            도수&nbsp;:&nbsp;{productData.product_percentage}%
+          </li>
+          <li className="capacity">
+            용량&nbsp;:&nbsp;{productData.product_volume}ml
+          </li>
           <li className="price">{formattedNumber}원</li>
         </ul>
         <div className="btnOpt">
@@ -211,10 +161,15 @@ const ProductDetail = () => {
         </p>
         {/* <button className="buy">구매하기</button> */}
 
-        <button className="btn up">수정하기</button>
-        <button className="btn del" onClick={deleteList}>
-          삭제하기
-        </button>
+        <Link to={`/update`} state={{ productData }}>
+          <button className="btn up">수정하기</button>
+        </Link>
+
+        <Link to={`/`}>
+          <button className="btn del" onClick={deleteHandler}>
+            삭제하기
+          </button>
+        </Link>
       </aside>
     </div>
   );
