@@ -1,9 +1,8 @@
 import { useState } from "react";
-import "./ProductForm.css";
-import Input from "./Input";
-import ImageUploader from "./ImageUploader.js";
+import "../css/ProductForm.css";
+import Input from "../components/Input";
+import ImageUploader from "../components/ImageUploader.js";
 import axios from "axios";
-import ImageUploader3 from "./ImageUploader3";
 
 const ProductForm = () => {
   const [productData, setProductData] = useState({
@@ -71,7 +70,7 @@ const ProductForm = () => {
           {/* 이미지 등록 */}
           <div className="test">
             {/* <ImageUploader /> */}
-            <ImageUploader onSaveData={saveDataHandler} />
+            <ImageUploader maxFiles={1} onSaveData={saveDataHandler} />
           </div>
         </div>
 
@@ -161,6 +160,10 @@ const ProductForm = () => {
 
       {/* 아랫단 */}
       <div>
+        <div className="test">
+          {/* <ImageUploader /> */}
+          <ImageUploader maxFiles={5} onSaveData={saveDataHandler} />
+        </div>
         {/* 상품 상세? 소개?  */}
         <div>
           <p>상품 상세</p>

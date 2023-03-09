@@ -3,7 +3,7 @@ import Dropzone from "react-dropzone";
 import Cropper from "react-cropper";
 import "cropperjs/dist/cropper.css";
 import { AiFillPlusCircle, AiFillMinusCircle } from "react-icons/ai";
-import "./ProductForm.css";
+import "../css/ProductForm.css";
 
 const Image = () => {
   let test = 0;

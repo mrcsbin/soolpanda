@@ -1,10 +1,9 @@
-import { useState, useEffect } from "react";
-import "../components/product-form/ProductForm.css";
-import Input from "../components/product-form/Input";
-import ImageUploadermodify from "./ImageUploadermodify";
+import { useState } from "react";
+import "../css/ProductForm.css";
+import Input from "../components/Input";
 import axios from "axios";
 import { useLocation } from "react-router-dom";
-import ImageUploader3 from "../components/product-form/ImageUploader3";
+import ImageUploader from "../components/ImageUploader";
 
 const ProductUpdateForm = (props) => {
   const location = useLocation();
@@ -28,12 +27,12 @@ const ProductUpdateForm = (props) => {
       .catch((error) => {});
   };
 
-  const handleChangeState = (e) => {
-    setProductData({
-      ...productData,
-      [e.target.name]: e.target.value,
-    });
-  };
+  // const handleChangeState = (e) => {
+  //   setProductData({
+  //     ...productData,
+  //     [e.target.name]: e.target.value,
+  //   });
+  // };
 
   const handleSubmit = () => {
     console.log(productData);
@@ -76,14 +75,11 @@ const ProductUpdateForm = (props) => {
 
           {/* 이미지 등록 */}
           <div className="test">
-            <ImageUploader3
+            <ImageUploader
+              maxFiles={5}
               onSaveData={saveDataHandler}
               images={productData.product_info}
             />
-            {/* <ImageUploadermodify
-              onSaveData={saveDataHandler}
-              images={productData.product_info}
-            /> */}
           </div>
         </div>
 
@@ -115,7 +111,7 @@ const ProductUpdateForm = (props) => {
             <select
               name="product_category"
               value={productData.product_category}
-              onChange={handleChangeState}
+              onChange={productDataHandler}
             >
               <option>선택해주세요</option>
               <option value="탁주">탁주</option>

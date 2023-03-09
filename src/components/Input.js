@@ -1,5 +1,3 @@
-// ..\test_project\src\components\Input.jsx
-
 import React, { PureComponent } from "react";
 import PropTypes from "prop-types";
 

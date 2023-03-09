@@ -32,7 +32,6 @@ function Button() {
   const onClickHandler = () => {
     axios
       .delete("http://localhost:8000/product/" + productData.id)
-      //   .delete(`http://localhost:8000/product/${productData.id}`)
       .then((Response) => {
         console.log(Response);
       })

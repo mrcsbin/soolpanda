@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from "react";
 import Dropzone from "react-dropzone";
 import { AiFillMinusCircle } from "react-icons/ai";
-import "./ProductForm.css";
+import "../css/ProductForm.css";
 
 const ImageUploader3 = (props) => {
   let no = 0;
