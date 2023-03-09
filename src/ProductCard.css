@@ -1,11 +1,12 @@
 .Cardbox {
+  display: block;
   margin: 0 auto;
   padding: 0;
-  width: 90vw;
+  width: 80vw;
 }
 .Cardblock {
-  width: 280px;
-  height: 425px;
+  width: 250px;
+  height: 400px;
   padding: 1rem;
   border-radius: 22px;
 
@@ -27,15 +28,15 @@
 }
 
 .Imagebox {
-  height: 280px;
-  width: 280px;
+  height: 250px;
+  width: 250px;
   border-radius: 22px;
   margin: 0;
   overflow: hidden;
 }
 .Productimage {
-  height: 280px;
-  width: 280px;
+  height: 250px;
+  width: 250px;
   object-fit: cover;
 }
 
@@ -52,7 +53,7 @@
   -webkit-appearance: none;
   -moz-appearance: none;
   appearance: none;
-  margin: 44px 540px;
+  margin: 44px 36vw;
   padding: 0.5rem 1.5rem;
   width: auto;
   font-family: "Noto Sans KR";
