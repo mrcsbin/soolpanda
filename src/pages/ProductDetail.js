@@ -210,6 +210,7 @@ const ProductDetail = () => {
           <span className="sum">{pprice}원</span>
         </p>
         {/* <button className="buy">구매하기</button> */}
+
         <button className="btn up">수정하기</button>
         <button className="btn del" onClick={deleteList}>
           삭제하기
