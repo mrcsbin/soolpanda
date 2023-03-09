@@ -3,6 +3,7 @@ import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
 import styled from "styled-components";
 import CategoryPage from "./CategoryPage";
 import MainPage from "./MainPage";
+import Header from "./Header";
 
 const Headerblock = styled.div`
   display: flex;
@@ -16,10 +17,6 @@ const Headerblock = styled.div`
 `;
 
 function App() {
-  const Header = () => {
-    return <Headerblock></Headerblock>;
-  };
-
   return (
     <Router>
       <Header />

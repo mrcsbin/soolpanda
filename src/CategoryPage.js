@@ -60,12 +60,7 @@ const CategoryPage = () => {
   // 카테고리가 선택되지 않았으면 기본값 all로 사용
   const category = params.category || "all";
 
-  return (
-    <>
-      <Categories />
-      <ItemList category={category} />
-    </>
-  );
+  return <ItemList category={category} />;
 };
 
 export default CategoryPage;

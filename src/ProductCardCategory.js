@@ -26,23 +26,26 @@ const ProductCardCartegory = (props) => {
   }, [countMore]);
 
   return (
-    <div className="Cardbox">
-      {sliced.map((alcohol) => {
-        return <Card alcohol={alcohol} />;
-      })}
-      <button
-        className="Morebutton"
-        style={{
-          visibility: countMore >= props.alcohol.length ? "hidden" : "visible",
-        }}
-        onClick={() => {
-          ///클릭할때마다 8개씩 더 나오게 함
-          setCountMore(countMore + 8);
-        }}
-      >
-        더보기
-      </button>
-    </div>
+    <>
+      <div className="Cardbox">
+        {sliced.map((alcohol) => {
+          return <Card alcohol={alcohol} />;
+        })}
+        <button
+          className="Morebutton"
+          style={{
+            visibility:
+              countMore >= props.alcohol.length ? "hidden" : "visible",
+          }}
+          onClick={() => {
+            ///클릭할때마다 8개씩 더 나오게 함
+            setCountMore(countMore + 8);
+          }}
+        >
+          더보기
+        </button>
+      </div>
+    </>
   );
 };
 

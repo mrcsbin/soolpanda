@@ -35,7 +35,7 @@ const CategoriesBlock = styled.div`
 const Category = styled(NavLink)`
   font-size: 1rem;
   cursor: pointer;
-  padding: 0 0 0.6rem 0;
+  padding: 0 0 0.5rem 0;
   white-space: pre;
   text-decoration: none;
   color: #2f2f2f;
@@ -47,7 +47,7 @@ const Category = styled(NavLink)`
 
   &.active {
     font-weight: 600;
-    border-bottom: 5px solid #000000;
+    border-bottom: 6px solid #000000;
     color: #000000;
     &:hover {
       border-bottom: 5px solid #2f2f2f;
