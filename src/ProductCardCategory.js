@@ -17,18 +17,13 @@ const Card = (props) => {
 
 const ProductCardCartegory = (props) => {
   // 전체 데이터 중 어디까지 잘라서 보여줄지 - 함수
-  const [countMore, setCountMore] = useState(0); //배열 중 몇번째까지
+  const [countMore, setCountMore] = useState(8); //배열 중 몇번째까지
   const [sliced, setSliced] = useState([]); //잘라서 저장
 
   /* Countmore이 onClick 안에서 바뀌면 재렌더링 됨 */
   useEffect(() => {
-    setSliced(props.alcohol.slice(0, countMore + 8));
+    setSliced(props.alcohol.slice(0, countMore));
   }, [countMore]);
-
-  /* 처음에 렌더링 될때 8개 가져옴 */
-  useEffect(() => {
-    setSliced(props.alcohol.slice(0, countMore + 8));
-  }, []);
 
   return (
     <div className="Cardbox">
@@ -38,8 +33,7 @@ const ProductCardCartegory = (props) => {
       <button
         className="Morebutton"
         style={{
-          visibility:
-            countMore >= props.alcohol.length - 8 ? "hidden" : "visible",
+          visibility: countMore >= props.alcohol.length ? "hidden" : "visible",
         }}
         onClick={() => {
           ///클릭할때마다 8개씩 더 나오게 함
