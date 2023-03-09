@@ -60,7 +60,6 @@ const MainPage = () => {
     <box>
       <Carousel />
       <br />
-      <div></div>
       <ProductCardMain alcohol={alcohol} />
     </box>
   );

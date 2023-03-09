@@ -5,19 +5,6 @@ import Categories from "./Categories";
 import ProductCardCartegory from "./ProductCardCategory";
 import axios from "axios";
 
-const ItemListBlock = styled.div`
-  box-sizing: border-box;
-  padding-bottom: 3rem;
-  width: 768px;
-  margin: 0 auto;
-  margin-top: 2rem;
-  @media screen and (max-width: 768px) {
-    width: 100%;
-    padding-left: 1rem;
-    padding-right: 1rem;
-  }
-`;
-
 const ItemList = ({ category }) => {
   const [alcohol, setAlcohol] = useState();
   const [loading, setLoading] = useState(false);
@@ -39,7 +26,7 @@ const ItemList = ({ category }) => {
 
   // 대기 중일 때
   if (loading) {
-    return <ItemListBlock>대기 중...</ItemListBlock>;
+    return <div>대기 중...</div>;
   }
   // 아직 값이 설정되지 않았을 때
   if (!alcohol) {
@@ -47,12 +34,7 @@ const ItemList = ({ category }) => {
   }
 
   // 값이 유효할 때
-  return (
-    <ItemListBlock>
-      <ProductCardCartegory key={alcohol.product_num} alcohol={alcohol} />
-      {console.log(alcohol)}
-    </ItemListBlock>
-  );
+  return <ProductCardCartegory key={alcohol.product_num} alcohol={alcohol} />;
 };
 
 const CategoryPage = () => {
