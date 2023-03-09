@@ -1,12 +1,18 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import Dropzone from "react-dropzone";
 import { AiFillMinusCircle } from "react-icons/ai";
-import "./ProductForm.css";
+import "../components/product-form/ProductForm.css";
 
 const ImageUploader = (props) => {
   let no = 0;
 
   const [files, setFiles] = useState([]);
+
+  useEffect(() => {
+    setFiles(props.images);
+    console.log(files);
+    console.log(props.images[0]);
+  }, []);
 
   const onDrop = (acceptedFiles, tmi) => {
     if (acceptedFiles.length + no > 5) {
@@ -14,11 +20,11 @@ const ImageUploader = (props) => {
       return;
     }
     const newFiles = [...files];
+    console.log(files);
     acceptedFiles.forEach((file) => {
       const reader = new FileReader();
       reader.onload = () => {
         const base64Image = reader.result;
-        console.log(base64Image);
 
         newFiles.push({
           file,
@@ -26,6 +32,7 @@ const ImageUploader = (props) => {
         });
         setFiles(newFiles);
         props.onSaveData(newFiles);
+        console.log(files);
       };
       reader.readAsDataURL(file);
     });
@@ -48,7 +55,7 @@ const ImageUploader = (props) => {
           onDrop={onDrop}
           accept={{ "image/*": [".png", ".gif", ".jpeg", ".jpg"] }}
           maxSize={5242880}
-          maxFiles={props.maxFiles}
+          maxFiles={5}
         >
           {({ getRootProps, getInputProps }) => (
             <div {...getRootProps({ className: "add-container" })}>

@@ -1,13 +1,18 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import Dropzone from "react-dropzone";
-import { AiFillPlusCircle, AiFillMinusCircle } from "react-icons/ai";
+import { AiFillMinusCircle } from "react-icons/ai";
 import "./ProductForm.css";
 
-const ImageUploader = () => {
+const ImageUploader3 = (props) => {
   let no = 0;
 
   const [files, setFiles] = useState([]);
-  const [image, setImage] = useState(null);
+
+  useEffect(() => {
+    setFiles(props.images);
+    console.log(files);
+    console.log(props.images[0]);
+  }, []);
 
   const onDrop = (acceptedFiles, tmi) => {
     if (acceptedFiles.length + no > 5) {
@@ -15,11 +20,19 @@ const ImageUploader = () => {
       return;
     }
     const newFiles = [...files];
+    console.log(files);
     acceptedFiles.forEach((file) => {
       const reader = new FileReader();
       reader.onload = () => {
-        newFiles.push(file);
+        const base64Image = reader.result;
+
+        newFiles.push({
+          file,
+          base64Image,
+        });
         setFiles(newFiles);
+        props.onSaveData(newFiles);
+        console.log(files);
       };
       reader.readAsDataURL(file);
     });
@@ -33,42 +46,38 @@ const ImageUploader = () => {
     const newFiles = [...files];
     newFiles.splice(index, 1);
     setFiles(newFiles);
-    setImage(null);
   };
 
   return (
     <div>
-      <Dropzone
-        onDrop={onDrop}
-        accept="image/*"
-        multiple={true}
-        maxSize={5242880}
-        maxFiles={5}
-      >
-        {({ getRootProps, getInputProps }) => (
-          <div {...getRootProps({ className: "add-container" })}>
-            <input {...getInputProps()} />
-            <AiFillPlusCircle className="add-button" size="30" />
-          </div>
-        )}
-      </Dropzone>
-      {image && (
-        <div>
-          <img src={image} alt="Crop Preview" />
-          <button onClick={() => setImage(null)}>Cancel</button>
-        </div>
-      )}
       <div className="image-container">
-        {/* <img src="" */}
+        <Dropzone
+          onDrop={onDrop}
+          accept={{ "image/*": [".png", ".gif", ".jpeg", ".jpg"] }}
+          maxSize={5242880}
+          maxFiles={5}
+        >
+          {({ getRootProps, getInputProps }) => (
+            <div {...getRootProps({ className: "add-container" })}>
+              <input {...getInputProps()} />
+              <p className="add">이곳을 눌러서 이미지를 추가하세요.</p>
+            </div>
+          )}
+        </Dropzone>
         {files.map((file, index) => (
           <div className="images" key={no++}>
             <img
-              src={URL.createObjectURL(file)}
+              src={file.base64Image}
               alt={file.name}
-              style={{ width: "100px", height: "100px", objectFit: "cover" }}
+              style={{
+                width: "100px",
+                height: "100px",
+                objectFit: "cover",
+              }}
             />
             <button
               className="delete-button"
+              style={{ float: "left" }}
               onClick={() => handleDelete(index)}
             >
               <AiFillMinusCircle size="30" color="black" />
@@ -80,4 +89,4 @@ const ImageUploader = () => {
   );
 };
 
-export default ImageUploader;
+export default ImageUploader3;

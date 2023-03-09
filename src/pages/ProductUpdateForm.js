@@ -1,21 +1,32 @@
-import { useState } from "react";
-import "./ProductForm.css";
-import Input from "./Input";
-import ImageUploader from "./ImageUploader.js";
+import { useState, useEffect } from "react";
+import "../components/product-form/ProductForm.css";
+import Input from "../components/product-form/Input";
+import ImageUploadermodify from "./ImageUploadermodify";
 import axios from "axios";
-import ImageUploader3 from "./ImageUploader3";
+import { useLocation } from "react-router-dom";
+import ImageUploader3 from "../components/product-form/ImageUploader3";
 
-const ProductForm = () => {
+const ProductUpdateForm = (props) => {
+  const location = useLocation();
   const [productData, setProductData] = useState({
-    product_name: "",
-    product_introduction: "",
-    product_info: [],
-    product_category: "",
-    product_percentage: "",
-    product_volume: "",
-    product_price: "",
-    product_stock: "",
+    product_name: location.state.productData.product_name || "",
+    product_introduction: location.state.productData.product_introduction || "",
+    product_info: location.state.productData.product_info || "",
+    product_category: location.state.productData.product_category || "",
+    product_percentage: location.state.productData.product_percentage || "",
+    product_volume: location.state.productData.product_volume || "",
+    product_price: location.state.productData.product_price || "",
+    product_stock: location.state.productData.product_stock || "",
   });
+
+  const updateProduct = (productId, updatedProductData) => {
+    axios
+      .put(`http://localhost:8000/product/${productId}`, updatedProductData)
+      .then((response) => {
+        console.log(productData);
+      })
+      .catch((error) => {});
+  };
 
   const handleChangeState = (e) => {
     setProductData({
@@ -26,15 +37,10 @@ const ProductForm = () => {
 
   const handleSubmit = () => {
     console.log(productData);
-    axios
-      .post("http://localhost:8000/product", productData)
-      .then(function (response) {})
-      .catch(function (error) {})
-      .then(function () {});
+    updateProduct(location.state.productData.id, productData);
   };
 
   const saveDataHandler = (data) => {
-    console.log(data);
     setProductData({
       ...productData,
       product_info: data,
@@ -70,8 +76,14 @@ const ProductForm = () => {
 
           {/* 이미지 등록 */}
           <div className="test">
-            {/* <ImageUploader /> */}
-            <ImageUploader onSaveData={saveDataHandler} />
+            <ImageUploader3
+              onSaveData={saveDataHandler}
+              images={productData.product_info}
+            />
+            {/* <ImageUploadermodify
+              onSaveData={saveDataHandler}
+              images={productData.product_info}
+            /> */}
           </div>
         </div>
 
@@ -82,6 +94,7 @@ const ProductForm = () => {
             <span>상품명 </span>
             <Input
               name={"product_name"}
+              value={productData.product_name}
               onSaveProductData={productDataHandler}
             />
           </div>
@@ -91,6 +104,7 @@ const ProductForm = () => {
             <span>소개 </span>
             <Input
               name={"product_introduction"}
+              value={productData.product_introduction}
               onSaveProductData={productDataHandler}
             />
           </div>
@@ -100,7 +114,7 @@ const ProductForm = () => {
             <span>주종 </span>
             <select
               name="product_category"
-              // value={productData.product_category}
+              value={productData.product_category}
               onChange={handleChangeState}
             >
               <option>선택해주세요</option>
@@ -115,6 +129,7 @@ const ProductForm = () => {
             <span>도수 </span>
             <Input
               name="product_percentage"
+              value={productData.product_percentage}
               onSaveProductData={productDataHandler}
             />
             <span> %</span>
@@ -125,6 +140,7 @@ const ProductForm = () => {
             <span>용량 </span>
             <Input
               name="product_volume"
+              value={productData.product_volume}
               onSaveProductData={productDataHandler}
             />
             <span> ml</span>
@@ -135,6 +151,7 @@ const ProductForm = () => {
             <span>가격 </span>
             <Input
               name="product_price"
+              value={productData.product_price}
               onSaveProductData={productDataHandler}
             />
             <span> 원</span>
@@ -145,6 +162,7 @@ const ProductForm = () => {
             <span>재고 </span>
             <Input
               name="product_stock"
+              value={productData.product_stock}
               onSaveProductData={productDataHandler}
             />
             <span> 개</span>
@@ -169,7 +187,7 @@ const ProductForm = () => {
         {/* 저장 */}
         <div>
           <button className="submit-button" onClick={handleSubmit}>
-            등록하기
+            수정하기
           </button>
         </div>
       </div>
@@ -177,4 +195,4 @@ const ProductForm = () => {
   );
 };
 
-export default ProductForm;
+export default ProductUpdateForm;

@@ -1,35 +1,3 @@
-// import React, { useState } from "react";
-// import axios from "axios";
-
-// const Get = () => {
-//   const [ProductData, setProductData] = useState({ id: "" });
-
-//   const onClickHandler = () => {
-//     axios
-//       .get("http://localhost:8000/product/10")
-//       .then((Response) => {
-//         console.log(Response);
-//         console.log(Response.data);
-//         const ProductData2 = Response.data;
-//         console.log("ProductData ID" + ProductData2.id);
-//         setProductData(ProductData2.id);
-//       })
-//       .catch((Error) => {
-//         console.log(Error);
-//       });
-//   };
-
-//   return (
-//     <div>
-//       <p>Get</p>
-//       <button onClick={onClickHandler}>Get</button>
-//       <p>{ProductData}</p>
-//     </div>
-//   );
-// };
-
-// export default Get;
-
 import React, { useState } from "react";
 import axios from "axios";
 
@@ -47,7 +15,7 @@ const Get = () => {
 
   const onClickHandler = () => {
     axios
-      .get("http://localhost:8000/product/10")
+      .get("http://localhost:8000/product/12")
       .then((Response) => {
         console.log(Response);
         console.log(Response.data);
@@ -65,7 +33,7 @@ const Get = () => {
       <button onClick={onClickHandler}>Get</button>
 
       <p>{productData.product_name}</p>
-      <img src={productData.product_info[0]} />
+      <img src={productData.product_info} alt="Success!" />
     </div>
   );
 };
