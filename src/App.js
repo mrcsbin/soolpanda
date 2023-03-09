@@ -6,17 +6,6 @@ import MainPage from "./MainPage";
 import SearchPage from "./SearchPage";
 import Header from "./Header";
 
-const Headerblock = styled.div`
-  display: flex;
-  padding: 1rem 1rem 0 1rem;
-  width: 768px;
-  margin: 0 auto;
-  @media screen and (max-width: 768px) {
-    width: 100%;
-    overflow-x: auto;
-  }
-`;
-
 function App() {
   return (
     <Router>
