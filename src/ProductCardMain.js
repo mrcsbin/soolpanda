@@ -41,8 +41,13 @@ const ProductCardMain = (props) => {
   }, [countMoreFavr]);
 
   return (
-    <div>
+    <div >
+      <hr />
       <div className="Cardbox">
+        <p className="after new">
+          이달의 신상품
+          <br /> <span>NEW</span>{" "}
+        </p>
         {sliceNew.map((alcohol) => {
           return <Card alcohol={alcohol} />;
         })}
@@ -59,11 +64,11 @@ const ProductCardMain = (props) => {
           더보기
         </button>
       </div>
-
       <hr />
-      <p style={{ textalign: "left", float: "left" }}>낮은 가격순</p>
-      <p style={{ clear: "both" }}></p>
       <div className="Cardbox">
+      <p className="after best">
+        인기상품 <br /> <span>BEST</span>
+      </p>
         {sliceFavr.map((alcohol) => {
           return <Card alcohol={alcohol} />;
         })}

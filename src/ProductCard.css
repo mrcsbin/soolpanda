@@ -13,6 +13,25 @@
   padding: 0;
   width: 80vw;
 }
+.after {
+  position: relative;
+  font-size: 18px;
+  padding-left: 15px;
+}
+
+.after span {
+  font-size: 20px;
+  font-weight: bold;
+}
+.after::after {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 5px;
+  height: 45px;
+  background: #707070;
+}
 .Cardblock {
   width: 250px;
   height: 400px;
