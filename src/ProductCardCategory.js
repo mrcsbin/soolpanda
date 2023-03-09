@@ -1,16 +1,20 @@
 import { useState, useEffect } from "react";
-import styled from "styled-components";
 import "./ProductCard.css";
 
 const Card = (props) => {
+  function addComma(num) {
+    var regexp = /\B(?=(\d{3})+(?!\d))/g;
+    return num.toString().replace(regexp, ",");
+  }
+  var productprice = addComma(props.alcohol.product_price);
   return (
     <div className="Cardblock">
       <div className="Imagebox">
         <img className="Productimage" src={props.alcohol.product_mainimage} />
       </div>
       <div className="Pname">{props.alcohol.product_name}</div>
-      <p>{props.alcohol.product_introduction}</p>
-      <p>{props.alcohol.product_price}</p>
+      <div className="Pintro">{props.alcohol.product_introduction}</div>
+      <div className="Pprice">{productprice} 원</div>
     </div>
   );
 };

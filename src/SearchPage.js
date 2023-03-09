@@ -35,7 +35,7 @@ const ItemList = ({ search }) => {
 
   // 대기 중일 때
   if (loading) {
-    return <>대기 중...</>;
+    return <div />;
   }
   // 아직 값이 설정되지 않았을 때
   if (!alcohol) {

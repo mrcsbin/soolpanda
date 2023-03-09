@@ -1,7 +1,5 @@
 import React, { useState, useEffect } from "react";
-import styled from "styled-components";
 import { useParams } from "react-router-dom";
-import Categories from "./Categories";
 import ProductCardCartegory from "./ProductCardCategory";
 import axios from "axios";
 
@@ -26,7 +24,7 @@ const ItemList = ({ category }) => {
 
   // 대기 중일 때
   if (loading) {
-    return <div>대기 중...</div>;
+    return <div />;
   }
   // 아직 값이 설정되지 않았을 때
   if (!alcohol) {

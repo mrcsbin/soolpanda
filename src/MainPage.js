@@ -1,8 +1,6 @@
 import React, { useState, useEffect } from "react";
-import { Container, Row, Col } from "react-bootstrap";
 import styled from "styled-components";
 import ProductCardMain from "./ProductCardMain";
-import Categories from "./Categories";
 import axios from "axios";
 
 const Carousel = styled.div`
@@ -17,12 +15,12 @@ const Carousel = styled.div`
 const ThreeBox = () => {
   return (
     // <div className='"container'>
-    <Col sm={4} style={{ width: "30%", marginleft: "300px" }}>
+    <div style={{ width: "30%", marginleft: "300px" }}>
       <div
         style={{ color: "yellow", background: "yellow", height: "20px" }}
       ></div>
       <h4>탁주</h4>
-    </Col>
+    </div>
     // </div>
   );
 };
@@ -48,7 +46,7 @@ const MainPage = () => {
 
   // 대기 중일 때
   if (loading) {
-    return <>로딩중...</>;
+    return <div />;
   }
   // 아직 값이 설정되지 않았을 때
   if (!alcohol) {
