@@ -1,11 +1,9 @@
 import React, { useState, useEffect } from "react";
-import styled from "styled-components";
 import { useParams } from "react-router-dom";
-import Categories from "./Categories";
 import ProductCardCartegory from "./ProductCardCategory";
 import axios from "axios";
 
-const ItemList = ({ category }) => {
+const ItemList = ({ search }) => {
   const [alcohol, setAlcohol] = useState();
   const [loading, setLoading] = useState(false);
 
@@ -14,7 +12,18 @@ const ItemList = ({ category }) => {
       setLoading(true);
       try {
         const res = await axios.get("http://localhost:3002/product");
-        setAlcohol(res.data.filter((x) => x.product_category == category));
+        console.log(res.data);
+        setAlcohol(
+          res.data.filter(
+            (x) =>
+              x.product_name.includes("Props that we get from search input") ||
+              x.product_writer.includes(
+                "Props that we get from search input"
+              ) ||
+              x.product_name.includes("고도리") //일단 고도리만 나오게 함  Props 받을시 삭제 가능
+          )
+        );
+
         console.log(alcohol);
       } catch (e) {
         console.log(e);
@@ -22,11 +31,11 @@ const ItemList = ({ category }) => {
       setLoading(false);
     };
     fetchData();
-  }, [category]);
+  }, ["Props that we get from search input"]);
 
   // 대기 중일 때
   if (loading) {
-    return <div>대기 중...</div>;
+    return <>대기 중...</>;
   }
   // 아직 값이 설정되지 않았을 때
   if (!alcohol) {
@@ -37,12 +46,19 @@ const ItemList = ({ category }) => {
   return <ProductCardCartegory key={alcohol.product_num} alcohol={alcohol} />;
 };
 
-const CategoryPage = () => {
+const SearchPage = () => {
   const params = useParams();
   // 카테고리가 선택되지 않았으면 기본값 all로 사용
-  const category = params.category || "all";
+  const search = params.search || "all";
 
-  return <ItemList category={category} />;
+  return <ItemList search={search} />;
 };
 
-export default CategoryPage;
+// function ss(){
+//    x.product_name.indexof('Props that we get from search input') >=
+//                 0 ||
+//   x.product_writer.indexof('Props that we get from search input') >=
+
+// }
+
+export default SearchPage;

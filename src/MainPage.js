@@ -58,10 +58,8 @@ const MainPage = () => {
   // 값이 유효할 때
   return (
     <box>
-      <Categories />
       <Carousel />
       <br />
-      <div></div>
       <ProductCardMain alcohol={alcohol} />
     </box>
   );
