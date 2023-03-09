@@ -27,10 +27,12 @@ const ProductCardMain = (props) => {
   /* 위와 동일함 - only difference : 인기상품용 */
   const [countMoreFavr, setCountMoreFavr] = useState(4);
   const [sliceFavr, setSliceFavr] = useState([]);
-  const sorted = props.alcohol.sort(
-    (a, b) => a.product_price - b.product_price
-  );
+  const sorted = [...props.alcohol]; //원본 배열 손상 X (deep copy 함)
   useEffect(() => {
+    ///낮은 가격순으로 정렬함
+    sorted.sort((a, b) => {
+      return a.product_price - b.product_price;
+    });
     setSliceFavr(sorted.slice(0, countMoreFavr));
   }, [countMoreFavr]);
 
