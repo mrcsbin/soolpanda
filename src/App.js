@@ -1,11 +1,21 @@
 import React from "react";
 import ProductForm from "./components/product-form/ProductForm";
+import { BrowserRouter, Route, Routes } from "react-router-dom";
+import Get from "./pages/Get";
+import Put from "./pages/Put";
+import Delete from "./pages/Delete";
 
 function App() {
   return (
-    <div className="App">
-      <ProductForm />
-    </div>
+    // <div className="App">
+    <Routes>
+      <Route path="/" element={<ProductForm />} />
+      <Route path="/get" element={<Get />} />
+      <Route path="/put" element={<Put />} />
+      <Route path="/delete" element={<Delete />} />
+    </Routes>
+
+    // </div>
   );
 }
 

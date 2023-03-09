@@ -40,6 +40,7 @@ class Input extends PureComponent {
     onChange(name, e.target.value);
 
     this.props.onSaveProductData(e);
+    // console.log(e.target.name);
   }
 
   // 입력창에 포커스
