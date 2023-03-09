@@ -27,13 +27,6 @@ const ProductUpdateForm = (props) => {
       .catch((error) => {});
   };
 
-  // const handleChangeState = (e) => {
-  //   setProductData({
-  //     ...productData,
-  //     [e.target.name]: e.target.value,
-  //   });
-  // };
-
   const handleSubmit = () => {
     console.log(productData);
     updateProduct(location.state.productData.id, productData);

@@ -16,13 +16,6 @@ const ProductForm = () => {
     product_stock: "",
   });
 
-  const handleChangeState = (e) => {
-    setProductData({
-      ...productData,
-      [e.target.name]: e.target.value,
-    });
-  };
-
   const handleSubmit = () => {
     console.log(productData);
     axios
@@ -100,7 +93,7 @@ const ProductForm = () => {
             <select
               name="product_category"
               // value={productData.product_category}
-              onChange={handleChangeState}
+              onChange={productDataHandler}
             >
               <option>선택해주세요</option>
               <option value="탁주">탁주</option>
