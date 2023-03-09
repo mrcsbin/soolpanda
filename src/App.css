@@ -1,38 +1,174 @@
-.App {
-  text-align: center;
+
+* {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+  box-sizing: border-box;
+  text-decoration: none;
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
+#wrap {
+  width: 80%;
+  position: relative;
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
+.left {
+  width: 55%;
+  margin: 0 25%;
+  padding: 30px;
+}
+.left img {width: 100%;}
+.right {
+  position: fixed;
+  top: 100px;
+  right: 17%;
+  width: 18%;  /*기본 20%*/
+  padding: 30px;
+  background: #f5f5f5;
+  border-radius: 10px;
+}
+.title {
+  margin: 20px 0;
 }
 
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
+li {
+  padding: 3px;
+}
+li.price {
+  margin: 15px 0;
+  font-size: 20px;
+  font-weight: bold;
+}
+p {
+  margin: 20px 0;
 }
 
-.App-link {
-  color: #61dafb;
+.btnOpt {
+  float: right;
+  overflow: hidden;
+  width: 170px;  /*기본값 55px*/
+  background: #fff;
+  border: 1px solid #e6e6e6;
+  border-radius: 10px;
+  line-height: 50px;
+  font-size: 25px;
+  
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+.btnOpt .option {
+  width: 70px;
+  height: 50px;
+  font-size: 32px;
+  background: #fff;
+  border: 0;
+  cursor : pointer;
+  
+  
 }
+h3 {
+  width: 100%;
+  margin: 30px 0;
+  padding-bottom: 10px;
+  border-bottom: 1px solid #000;
+}
+.btnl {
+  border-right: 1px solid #e6e6e6;
+  float : left;
+}
+
+.btnr {
+  border-left: 1px solid #e6e6e6;
+  float:right;
+}
+
+/* .buy {
+  width: 100%;
+  margin: 20px 0;
+  padding: 10px;
+  background: #707070;
+  border-radius: 10px;
+  color: #fff;
+  border: 1px solid transparent;
+  transition: background-color 0.3s ease-in-out;
+  cursor : pointer;  
+} */
+
+/* .buy:hover {
+  background: black;
+} */
+.btn {width: 48%;
+  margin: 20px 0;
+  padding: 10px;
+  background: #707070;
+  border-radius: 10px;
+  color: #fff;
+  border: 1px solid transparent;
+  transition: background-color 0.3s ease-in-out;
+  cursor : pointer;
+}
+.btn:hover {
+  background: black;
+  border: 1px solide transparent;
+}
+.btn.up {margin-right: 10px;}
+
+.sum {
+  font-size : 25px;
+  font-weight: bold;
+}
+
+/*슬라이드 CSS*/
+.section input[id*="slide"]{
+  display: none;
+}
+.section .slidewrap {
+  width: 100%;
+  margin: 0 auto;
+  overflow: hidden;
+  height: 600px;
+}
+.section .slidelist {
+  white-space: nowrap;
+  font-size: 0;
+  
+  
+}
+.section .slidelist > li {
+  display: inline-block;
+  vertical-align: middle;
+  width: 100%;
+  transition: all .5s;
+  
+}
+.section .slidelist > li > span {
+  display:  block;
+  position: relative;
+ 
+  
+} 
+.section .slidelist > li > span img {
+  width: 100%;
+  height: 600px;
+}
+.section .slidelist label {
+  position : absolute;
+  z-index: 10;
+  top : 50%;
+  transform: translateY(-40%);
+  transform: translateX(-60%);
+  padding : 15px;
+  cursor : pointer;
+  
+}
+.section .slidelist .left {
+  left : 0px;
+  background: url('https://via.placeholder.com/400') center center / 10% no-repeat;
+}
+.section .slidelist .right {
+  right : 0px;
+  background: url('https://via.placeholder.com/400') center center / 30% no-repeat;
+}
+.section [id="slide01"]:checked ~ .slidewrap .slidelist > li {transform:translateX(0%);}
+.section [id="slide02"]:checked ~ .slidewrap .slidelist > li {transform:translateX(-100%);}
+.section [id="slide03"]:checked ~ .slidewrap .slidelist > li {transform:translateX(-200%);}
+
