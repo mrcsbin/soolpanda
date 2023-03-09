@@ -2,7 +2,7 @@ import React from "react";
 import { Route, Routes } from "react-router-dom";
 import ProductForm from "./pages/ProductInputForm";
 import Update from "./pages/ProductUpdateForm";
-import ProductDetail from "./pages/ProductDetail ";
+import ProductDetail from "./pages/ProductDetail";
 import Button from "./components/button";
 
 function App() {

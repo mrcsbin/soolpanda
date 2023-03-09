@@ -1,14 +1,14 @@
 {
   "product": [
     {
-      "product_category": "",
       "product_name": "소주",
-      "product_introduction": "",
-      "product_info": "입니다",
-      "product_percentage": "15",
+      "product_introduction": "입니다.",
+      "product_info": [],
+      "product_category": "탁주",
+      "product_percentage": "40",
       "product_volume": "360",
       "product_price": "2000",
-      "product_stock": "2000",
+      "product_stock": "3000",
       "id": 1
     }
   ]

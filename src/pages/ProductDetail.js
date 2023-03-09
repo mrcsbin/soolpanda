@@ -13,11 +13,11 @@ const ProductDetail = () => {
 
   const getList = () => {
     axios
-      .get("http://localhost:8000/product", {})
-      .then((res) => {
+      .get("http://localhost:8000/products", {})
+      .then((Response) => {
         //server.js의 응답결과를 res에 저장합니다.
-        console.log("getlist 리스폰스 ==>", res);
-        const { data } = res; // data = res.data속성
+        console.log("getlist 리스폰스 ==>", Response);
+        const { data } = Response; // data = res.data속성
         setData(data[id]);
         console.log("getlist 데이터==>", data[id]);
       })
@@ -184,7 +184,7 @@ const ProductDetail = () => {
       </main>
       <aside className="right">
         <div class="title">
-          <h2 className="name">{product_name}</h2>
+          <h2 className="name">product_name</h2>
           <p className="coment">부설명</p>
         </div>
         <ul>
