@@ -1,23 +1,27 @@
 import f_logo from "./logo_font.png";
-
+import "./Footer.css";
 
 const Footer = () => {
   return (
-    <Footer>
+    <footer>
       <div className="left">
-        <div className="f-logo">{f_logo}</div>
-      </div>      
+        <div className="f-logo">
+          <img src={f_logo} alt=""></img>
+        </div>
+      </div>
       <p>@copyright 7조</p>
       <div className="right">
-        <p>나해성</p>
-        <p>박혜리</p>
-        <p>송경세</p>
-        <p>전채은</p>
-        <p>조성빈</p>
-        <p>조한식</p>
+        <ul>
+          <li>나해성</li>
+          <li>박혜리</li>
+          <li>송경세</li>
+          <li>전채은</li>
+          <li>조성빈</li>
+          <li>조한식</li>
+        </ul>
       </div>
-    </Footer>
-  )
+    </footer>
+  );
 };
 
 export default Footer;

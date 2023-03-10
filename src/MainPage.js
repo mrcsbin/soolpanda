@@ -18,15 +18,21 @@ const ThreeBox = () => {
     <div className="container">
       <ul>
         <li class="box">
-          <a href="#" className="type"></a>
+          <a href="#" className="type">
+            <img></img>
+          </a>
           <p>탁주</p>
         </li>
         <li class="box">
-          <a href="#" className="type"></a>
+          <a href="#" className="type">
+            <img></img>
+          </a>
           <p>증류주</p>
         </li>
         <li class="box">
-          <a href="#" className="type"></a>
+          <a href="#" className="type">
+            <img></img>
+          </a>
           <p>과실주</p>
         </li>
       </ul>
