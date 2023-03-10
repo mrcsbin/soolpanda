@@ -4,6 +4,7 @@ import CategoryPage from "./CategoryPage";
 import MainPage from "./MainPage";
 import SearchPage from "./SearchPage";
 import Header from "./Header";
+import ProductDetail from "./ProductDetail";
 
 function App() {
   return (
@@ -13,6 +14,7 @@ function App() {
         <Route path="/" exact={true} element={<MainPage />} />
         <Route path="/:category" element={<CategoryPage />} />
         <Route path="/:search" element={<SearchPage />} />
+        <Route path="/products/:id" element={<ProductDetail />} />
       </Routes>
     </Router>
   );

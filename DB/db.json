@@ -1,7 +1,7 @@
 {
     "product": [
     {
-      "prodct_num": 1,
+      "product_number": 1,
       "product_writer": "우리술방",
       "product_datetime": "2023.02.28",
       "product_mainimage":
@@ -16,7 +16,7 @@
       "product_stock": 30
     },
     {
-      "prodct_num": 2,
+      "product_number": 2,
       "product_writer": "우리술집",
       "product_datetime": "2023.03.02",
       "product_mainimage":
@@ -31,7 +31,7 @@
       "product_stock": 20
     },
     {
-      "prodct_num": 3,
+      "product_number": 3,
       "product_writer": "우리술방",
       "product_datetime": "2023.02.28",
       "product_mainimage":
@@ -46,7 +46,7 @@
       "product_stock": 50
     },
     {
-      "prodct_num": 4,
+      "product_number": 4,
       "product_writer": "우리술촌",
       "product_datetime": "2023.02.20",
       "product_mainimage":
@@ -61,7 +61,7 @@
       "product_stock": 30
     },
     {
-      "prodct_num": 5,
+      "product_number": 5,
       "product_writer": "우리술방",
       "product_datetime": "2023.02.28",
       "product_mainimage":
@@ -76,7 +76,7 @@
       "product_stock": 30
     },
     {
-      "prodct_num": 6,
+      "product_number": 6,
       "product_writer": "우리술집",
       "product_datetime": "2023.03.02",
       "product_mainimage":
@@ -91,7 +91,7 @@
       "product_stock": 20
     },
     {
-      "prodct_num": 7,
+      "product_number": 7,
       "product_writer": "우리술방",
       "product_datetime": "2023.02.28",
       "product_mainimage":
@@ -106,7 +106,7 @@
       "product_stock": 50
     },
     {
-      "prodct_num": 8,
+      "product_number": 8,
       "product_writer": "우리술촌",
       "product_datetime": "2023.02.20",
       "product_mainimage":
@@ -121,7 +121,7 @@
       "product_stock": 30
     },
     {
-      "prodct_num": 9,
+      "product_number": 9,
       "product_writer": "우리술방",
       "product_datetime": "2023.02.28",
       "product_mainimage":
@@ -136,7 +136,7 @@
       "product_stock": 50
     },
     {
-      "prodct_num": 10,
+      "product_number": 10,
       "product_writer": "우리술촌",
       "product_datetime": "2023.02.20",
       "product_mainimage":
@@ -151,7 +151,7 @@
       "product_stock": 30
     },
     {
-      "prodct_num": 11,
+      "product_number": 11,
       "product_writer": "우리술방",
       "product_datetime": "2023.02.28",
       "product_mainimage":
@@ -166,7 +166,7 @@
       "product_stock": 30
     },
     {
-      "prodct_num": 12,
+      "product_number": 12,
       "product_writer": "우리술집",
       "product_datetime": "2023.03.02",
       "product_mainimage":
@@ -181,7 +181,7 @@
       "product_stock": 20
     },
     {
-      "prodct_num": 13,
+      "product_number": 13,
       "product_writer": "우리술방",
       "product_datetime": "2023.02.28",
       "product_mainimage":
@@ -196,7 +196,7 @@
       "product_stock": 50
     },
     {
-      "prodct_num": 14,
+      "product_number": 14,
       "product_writer": "우리술촌",
       "product_datetime": "2023.02.20",
       "product_mainimage":
@@ -211,7 +211,7 @@
       "product_stock": 30
     },
     {
-      "prodct_num": 15,
+      "product_number": 15,
       "product_writer": "우리술방",
       "product_datetime": "2023.02.28",
       "product_mainimage":
@@ -226,7 +226,7 @@
       "product_stock": 30
     },
     {
-      "prodct_num": 16,
+      "product_number": 16,
       "product_writer": "우리술집",
       "product_datetime": "2023.03.02",
       "product_mainimage":
@@ -241,7 +241,7 @@
       "product_stock": 20
     },
     {
-      "prodct_num": 17,
+      "product_number": 17,
       "product_writer": "우리술방",
       "product_datetime": "2023.02.28",
       "product_mainimage":
@@ -256,7 +256,7 @@
       "product_stock": 50
     },
     {
-      "prodct_num": 18,
+      "product_number": 18,
       "product_writer": "우리술촌",
       "product_datetime": "2023.02.20",
       "product_mainimage":
@@ -271,7 +271,7 @@
       "product_stock": 30
     },
     {
-      "prodct_num": 19,
+      "product_number": 19,
       "product_writer": "우리술방",
       "product_datetime": "2023.02.28",
       "product_mainimage":
@@ -286,7 +286,7 @@
       "product_stock": 50
     },
     {
-      "prodct_num": 20,
+      "product_number": 20,
       "product_writer": "우리술촌",
       "product_datetime": "2023.02.20",
       "product_mainimage":
@@ -301,7 +301,7 @@
       "product_stock": 30
     },
     {
-      "prodct_num": 21,
+      "product_number": 21,
       "product_writer": "우리술방",
       "product_datetime": "2023.02.28",
       "product_mainimage":
@@ -316,7 +316,7 @@
       "product_stock": 30
     },
     {
-      "prodct_num": 22,
+      "product_number": 22,
       "product_writer": "우리술집",
       "product_datetime": "2023.03.02",
       "product_mainimage":
@@ -331,7 +331,7 @@
       "product_stock": 20
     },
     {
-      "prodct_num": 23,
+      "product_number": 23,
       "product_writer": "우리술방",
       "product_datetime": "2023.02.28",
       "product_mainimage":
@@ -346,7 +346,7 @@
       "product_stock": 50
     },
     {
-      "prodct_num": 24,
+      "product_number": 24,
       "product_writer": "우리술촌",
       "product_datetime": "2023.02.20",
       "product_mainimage":
@@ -361,7 +361,7 @@
       "product_stock": 30
     },
     {
-      "prodct_num": 25,
+      "product_number": 25,
       "product_writer": "우리술방",
       "product_datetime": "2023.02.28",
       "product_mainimage":
@@ -376,7 +376,7 @@
       "product_stock": 50
     },
     {
-      "prodct_num": 26,
+      "product_number": 26,
       "product_writer": "우리술촌",
       "product_datetime": "2023.02.20",
       "product_mainimage":

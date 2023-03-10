@@ -1,5 +1,6 @@
 import { useState, useEffect } from "react";
 import "./ProductCard.css";
+import { NavLink } from "react-router-dom";
 
 const Card = (props) => {
   function addComma(num) {
@@ -8,14 +9,17 @@ const Card = (props) => {
   }
   var productprice = addComma(props.alcohol.product_price);
   return (
-    <div className="Cardblock">
+    <NavLink
+      className="Cardblock"
+      to={`/products/${props.alcohol.product_number}`}
+    >
       <div className="Imagebox">
         <img className="Productimage" src={props.alcohol.product_mainimage} />
       </div>
       <div className="Pname">{props.alcohol.product_name}</div>
       <div className="Pintro">{props.alcohol.product_introduction}</div>
       <div className="Pprice">{productprice} 원</div>
-    </div>
+    </NavLink>
   );
 };
 
