@@ -9,7 +9,7 @@ const Carousel = styled.div`
   background-size: cover;
   background-position: center;
   height: 300px;
-  width: 100vw;
+  width: 100%;
   margin: 0 auto;
 `;
 
