@@ -2,26 +2,41 @@ import React, { useState, useEffect } from "react";
 import styled from "styled-components";
 import ProductCardMain from "../components/ProductCardMain";
 import axios from "axios";
+import "../css/MainPage.css";
 
 const Carousel = styled.div`
   background: url(https://d38cxpfv0ljg7q.cloudfront.net/content_images/contents_images-1663250259447-2.jpg);
   background-size: cover;
   background-position: center;
-  height: 350px;
-  width: 100vw;
+  height: 300px;
+  width: 100%;
   margin: 0 auto;
 `;
 
 const ThreeBox = () => {
   return (
-    // <div className='"container'>
-    <div style={{ width: "30%", marginleft: "300px" }}>
-      <div
-        style={{ color: "yellow", background: "yellow", height: "20px" }}
-      ></div>
-      <h4>탁주</h4>
+    <div className="container">
+      <ul>
+        <li className="box">
+          <a href="#" className="type">
+            <img></img>
+          </a>
+          <p>탁주</p>
+        </li>
+        <li class="box">
+          <a href="#" className="type">
+            <img></img>
+          </a>
+          <p>증류주</p>
+        </li>
+        <li class="box">
+          <a href="#" className="type">
+            <img></img>
+          </a>
+          <p>과실주</p>
+        </li>
+      </ul>
     </div>
-    // </div>
   );
 };
 
@@ -57,7 +72,7 @@ const MainPage = () => {
   return (
     <box>
       <Carousel />
-      <br />
+      <ThreeBox />
       <ProductCardMain alcohol={alcohol} />
     </box>
   );

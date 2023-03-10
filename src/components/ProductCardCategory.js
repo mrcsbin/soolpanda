@@ -1,6 +1,10 @@
 import { useState, useEffect } from "react";
+<<<<<<< HEAD:src/components/ProductCardCategory.js
 import "../css/ProductCard.css";
 import { NavLink } from "react-router-dom";
+=======
+import "./ProductCard.css";
+>>>>>>> 2f32d7267bbf539ef0bf59874754cf1b6679803d:src/ProductCardCategory.js
 
 const Card = (props) => {
   function addComma(num) {

@@ -8,6 +8,7 @@ import MainPage from "./pages/MainPage";
 import SearchPage from "./pages/SearchPage";
 import Header from "./components/Header";
 import Button from "./components/button";
+import Footer from "./components/Footer";
 // import ProductDetail2 from "./pages/ProductDetail2";
 
 function App() {
@@ -24,6 +25,7 @@ function App() {
         <Route path="/:search" element={<SearchPage />} />
         <Route path="/butt" element={<Button />} />
       </Routes>
+      <Footer />
     </Router>
   );
 }

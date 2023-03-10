@@ -12,6 +12,30 @@
   margin: 0 auto;
   padding: 0;
   width: 80vw;
+  border-top: 1px solid #e6e6e6;
+}
+.after {
+  position: relative;
+  font-size: 18px;
+  padding-left: 15px;
+}
+
+.after span {
+  font-size: 20px;
+  font-weight: bold;
+}
+.after::after {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 5px;
+  height: 45px;
+  background: #707070;
+}
+.cont {
+  width: 90%;
+  margin: 0 auto;
 }
 .Cardblock {
   width: 250px;
@@ -107,3 +131,7 @@ hr {
   border-top: 1px solid #e6e6e6;
   margin: 0 auto;
 }
+/* hr {
+  width: 80vw;
+  border-top: 1px solid #e6e6e6;
+} */

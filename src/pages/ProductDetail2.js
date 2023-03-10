@@ -19,8 +19,6 @@ const DetailPage = ({ item }) => {
     setNumber(number + 1);
   };
 
-  console.log("asdasd");
-
   const onClick2 = () => {
     if (number > 1) {
       setNumber(number - 1);
