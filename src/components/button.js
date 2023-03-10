@@ -6,7 +6,7 @@ function Button() {
   const [productData, setProductData] = useState({
     product_name: "",
     product_introduction: "",
-    product_info: [],
+    product_subimage: [],
     product_category: "",
     product_percentage: "",
     product_volume: "",
@@ -22,7 +22,7 @@ function Button() {
         // console.log(Response.data);
         // console.log("ProductData ID : " + Response.data.id);
         setProductData(Response.data);
-        console.log(Response.data.product_info);
+        console.log(Response.data.product_subimage);
       })
       .catch((Error) => {
         console.log(Error);

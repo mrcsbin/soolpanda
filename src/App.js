@@ -21,8 +21,8 @@ function App() {
         <Route path="/button" element={<Button />} />
         <Route path="/update" element={<Update />} />
         <Route exact path="/products/:id" element={<ProductDetail />} />
-        <Route path="/:category" element={<CategoryPage />} />
-        <Route path="/:search" element={<SearchPage />} />
+        <Route exact path="/:category" element={<CategoryPage />} />
+        <Route path="/products" element={<SearchPage />} />
         <Route path="/butt" element={<Button />} />
       </Routes>
       <Footer />

@@ -1,16 +1,14 @@
-import f_logo from "./logo_font.png";
-import "./Footer.css";
+import f_logo from "../images/logo_font.png";
+import "../css/Footer.css";
 
 const Footer = () => {
   return (
     <footer>
-      <div className="left">
-        <div className="f-logo">
-          <img src={f_logo} alt=""></img>
-        </div>
+      <div className="f-left">
+        <img src={f_logo} alt=""></img>
       </div>
       <p>@copyright 7조</p>
-      <div className="right">
+      <div className="f-right">
         <ul>
           <li>나해성</li>
           <li>박혜리</li>

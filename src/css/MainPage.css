@@ -8,10 +8,10 @@
   width: 60%;
   height: 130px;
   margin: 20px auto;
-  margin-bottom: 100px;
+  margin-bottom: 50px;
 }
 
-ul {
+.boxWrap {
   display: flex;
   justify-content: space-between;
   width: 100%;
@@ -25,7 +25,7 @@ ul {
   text-align: center;
 }
 
-.type {
+.box .type {
   display: inline-block;
   width: 80%;
   height: 90px;
@@ -37,20 +37,22 @@ ul {
   opacity: 0.6;
   z-index: 10;
 }
-.type:hover {
+
+.box .type:hover {
   opacity: 1;
 }
-.type img {
+
+.box .type img {
   width: 100%;
   height: 90px;
   background: no-repeat center/cover;
 }
 .box:nth-child(1) .type img {
-  background-image: url(./box1.png);
+  background-image: url(../images/box1.png);
 }
 .box:nth-child(2) .type img {
-  background-image: url(./box2.png);
+  background-image: url(../images/box2.png);
 }
 .box:nth-child(3) .type img {
-  background-image: url(./box3.png);
+  background-image: url(../images/box3.png);
 }

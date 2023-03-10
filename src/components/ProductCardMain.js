@@ -1,31 +1,30 @@
 import { useState, useEffect } from "react";
 import { NavLink } from "react-router-dom";
-
 import "../css/ProductCard.css";
-import "./ProductCard.css";
 
 const Card = (props) => {
   function addComma(num) {
     var regexp = /\B(?=(\d{3})+(?!\d))/g;
-    // console.log(props.alcohol.product_mainimage);
     return num.toString().replace(regexp, ",");
   }
   var productprice = addComma(props.alcohol.product_price);
   return (
-    <div className="Cardblock">
+    <NavLink
+      className="Cardblock"
+      to={`/products/${props.alcohol.id}`}
+      state={{ props }}
+    >
       <div className="Imagebox">
-        <NavLink to={`/products/${props.alcohol.id}`} state={{ props }}>
-          <img
-            className="Productimage"
-            src={props.alcohol.product_mainimage}
-            alt=""
-          />
-        </NavLink>
+        <img
+          className="Productimage"
+          src={props.alcohol.product_mainimage}
+          alt=""
+        />
       </div>
       <div className="Pname">{props.alcohol.product_name}</div>
       <div className="Pintro">{props.alcohol.product_introduction}</div>
       <div className="Pprice">{productprice} 원</div>
-    </div>
+    </NavLink>
   );
 };
 
@@ -36,7 +35,6 @@ const ProductCardMain = (props) => {
   /* CountmoreNew가 onClick 안에서 바뀌면 재렌더링 됨 */
   useEffect(() => {
     setSliceNew(props.alcohol.slice(0, countMoreNew));
-    // console.log(props.alcohol);
   }, [countMoreNew]);
 
   /* 위와 동일함 - only difference : 인기상품용 */
@@ -51,10 +49,11 @@ const ProductCardMain = (props) => {
     setSliceFavr(sorted.slice(0, countMoreFavr));
   }, [countMoreFavr]);
 
+  const alcogollength = props.alcohol.length;
   return (
-    <div>
+    <>
       <div className="Cardbox">
-        <div class="cont">
+        <div className="cont">
           <p className="after new">
             이달의 신상품
             <br /> <span>NEW</span>{" "}
@@ -66,7 +65,8 @@ const ProductCardMain = (props) => {
         <button
           className="Morebutton"
           style={{
-            visibility: countMoreNew >= 8 ? "hidden" : "visible",
+            visibility:
+              countMoreNew >= 8 || alcogollength <= 4 ? "hidden" : "visible",
           }}
           onClick={() => {
             ///클릭할때마다 8개씩 더 나오게 함
@@ -77,7 +77,7 @@ const ProductCardMain = (props) => {
         </button>
       </div>
       <div className="Cardbox">
-        <div class="cont">
+        <div className="cont">
           <p className="after best">
             인기상품 <br /> <span>BEST</span>
           </p>
@@ -88,7 +88,8 @@ const ProductCardMain = (props) => {
         <button
           className="Morebutton"
           style={{
-            visibility: countMoreFavr >= 8 ? "hidden" : "visible",
+            visibility:
+              countMoreFavr >= 8 || alcogollength <= 4 ? "hidden" : "visible",
           }}
           onClick={() => {
             ///클릭할때마다 4개씩 더 나오게 함
@@ -98,7 +99,7 @@ const ProductCardMain = (props) => {
           더보기
         </button>
       </div>
-    </div>
+    </>
   );
 };
 

@@ -12,8 +12,12 @@ const ItemList = ({ category }) => {
       setLoading(true);
       try {
         const res = await axios.get("http://localhost:8000/product");
-        setAlcohol(res.data.filter((x) => x.product_category === category));
-        console.log(alcohol);
+        if (category == "product") {
+          setAlcohol(res.data);
+        } else {
+          setAlcohol(res.data.filter((x) => x.product_category === category));
+          console.log(alcohol);
+        }
       } catch (e) {
         console.log(e);
       }

@@ -1,10 +1,6 @@
 import { useState, useEffect } from "react";
-<<<<<<< HEAD:src/components/ProductCardCategory.js
 import "../css/ProductCard.css";
 import { NavLink } from "react-router-dom";
-=======
-import "./ProductCard.css";
->>>>>>> 2f32d7267bbf539ef0bf59874754cf1b6679803d:src/ProductCardCategory.js
 
 const Card = (props) => {
   function addComma(num) {
@@ -13,20 +9,22 @@ const Card = (props) => {
   }
   var productprice = addComma(props.alcohol.product_price);
   return (
-    <div className="Cardblock">
+    <NavLink
+      className="Cardblock"
+      to={`/products/${props.alcohol.id}`}
+      state={{ props }}
+    >
       <div className="Imagebox">
-        <NavLink to={`/products/${props.alcohol.id}`} state={{ props }}>
-          <img
-            className="Productimage"
-            src={props.alcohol.product_mainimage}
-            alt=""
-          />
-        </NavLink>
+        <img
+          className="Productimage"
+          src={props.alcohol.product_mainimage}
+          alt=""
+        />
       </div>
       <div className="Pname">{props.alcohol.product_name}</div>
       <div className="Pintro">{props.alcohol.product_introduction}</div>
       <div className="Pprice">{productprice} 원</div>
-    </div>
+    </NavLink>
   );
 };
 
@@ -41,7 +39,7 @@ const ProductCardCategory = (props) => {
 
   return (
     <>
-      <div className="Cardbox">
+      <div className="CardboxC">
         {sliced.map((alcohol) => {
           return <Card alcohol={alcohol} />;
         })}

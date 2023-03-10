@@ -16,21 +16,21 @@ const Carousel = styled.div`
 const ThreeBox = () => {
   return (
     <div className="container">
-      <ul>
+      <ul className="boxWrap">
         <li className="box">
-          <a href="#" className="type">
+          <a href="/탁주" className="type">
             <img></img>
           </a>
           <p>탁주</p>
         </li>
-        <li class="box">
-          <a href="#" className="type">
+        <li className="box">
+          <a href="/증류주" className="type">
             <img></img>
           </a>
           <p>증류주</p>
         </li>
-        <li class="box">
-          <a href="#" className="type">
+        <li className="box">
+          <a href="/과실주" className="type">
             <img></img>
           </a>
           <p>과실주</p>
@@ -70,11 +70,11 @@ const MainPage = () => {
 
   // 값이 유효할 때
   return (
-    <box>
+    <div>
       <Carousel />
       <ThreeBox />
       <ProductCardMain alcohol={alcohol} />
-    </box>
+    </div>
   );
 };
 

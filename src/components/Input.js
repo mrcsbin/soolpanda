@@ -105,7 +105,7 @@ Input.propTypes = {
 Input.defaultProps = {
   value: "",
   type: "text",
-  autoFocus: false,
+  autoFocus: true,
   onChange: () => {},
   onFocus: () => {},
 };

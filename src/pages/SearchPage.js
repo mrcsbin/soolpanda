@@ -1,10 +1,10 @@
 import React, { useState, useEffect } from "react";
-import { useParams } from "react-router-dom";
+import { useSearchParams } from "react-router-dom";
 import ProductCardCategory from "../components/ProductCardCategory";
 import axios from "axios";
 
 const ItemList = ({ search }) => {
-  const [alcohol, setAlcohol] = useState();
+  const [alcohol, setAlcohol] = useState([]);
   const [loading, setLoading] = useState(false);
 
   useEffect(() => {
@@ -15,15 +15,10 @@ const ItemList = ({ search }) => {
         console.log(res.data);
         setAlcohol(
           res.data.filter(
-            (x) =>
-              x.product_name.includes("Props that we get from search input") ||
-              x.product_writer.includes(
-                "Props that we get from search input"
-              ) ||
-              x.product_name.includes("고도리") //일단 고도리만 나오게 함  Props 받을시 삭제 가능
+            (x) => x.product_name.includes(search)
+            // || x.product_"이름말고 다른 값 찾는기능 추가할때".includes(search)
           )
         );
-
         console.log(alcohol);
       } catch (e) {
         console.log(e);
@@ -31,7 +26,7 @@ const ItemList = ({ search }) => {
       setLoading(false);
     };
     fetchData();
-  }, ["Props that we get from search input"]);
+  }, [search]);
 
   // 대기 중일 때
   if (loading) {
@@ -41,24 +36,30 @@ const ItemList = ({ search }) => {
   if (!alcohol) {
     return null;
   }
+  if (alcohol.length < 1) {
+    return (
+      <div
+        style={{
+          width: "80%",
+          margin: "0 auto",
+          padding: "15% 10%",
+          textAlign: "center",
+        }}
+      >
+        검색 결과가 없습니다.
+      </div>
+    );
+  }
 
   // 값이 유효할 때
   return <ProductCardCategory key={alcohol.product_num} alcohol={alcohol} />;
 };
 
 const SearchPage = () => {
-  const params = useParams();
-  // 카테고리가 선택되지 않았으면 기본값 all로 사용
-  const search = params.search || "all";
-
+  const [searchParams, setSearchParams] = useSearchParams();
+  const search = searchParams.get("search");
+  console.log(search);
   return <ItemList search={search} />;
 };
-
-// function ss(){
-//    x.product_name.indexof('Props that we get from search input') >=
-//                 0 ||
-//   x.product_writer.indexof('Props that we get from search input') >=
-
-// }
 
 export default SearchPage;
