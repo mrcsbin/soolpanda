@@ -9,11 +9,12 @@ import SearchPage from "./pages/SearchPage";
 import Header from "./components/Header";
 import Button from "./components/button";
 import Footer from "./components/Footer";
-// import ProductDetail2 from "./pages/ProductDetail2";
+import ScrollToTop from "./components/ScrollToTop.js";
 
 function App() {
   return (
     <Router>
+      <ScrollToTop />
       <Header />
       <Routes>
         <Route path="/" exact={true} element={<MainPage />} />

@@ -3,7 +3,7 @@ import "../css/ProductForm.css";
 import Input from "../components/Input";
 import ImageUploader from "../components/ImageUploader.js";
 import axios from "axios";
-
+import ScrollToTop from "../components/ScrollToTop";
 const ProductForm = () => {
   const now = new Date();
 

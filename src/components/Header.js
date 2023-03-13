@@ -2,7 +2,7 @@ import styled from "styled-components";
 import logo from "../images/logo_soolpanda.png";
 import Categories from "./Categories";
 import { useState } from "react";
-import { useNavigate } from "react-router-dom";
+import { useNavigate, Link } from "react-router-dom";
 import "../css/Logo.css";
 
 const Headerblock = styled.div`
@@ -155,9 +155,10 @@ const Header = () => {
             />
           </SearchBox>
         </div>
-        <a href="/input">
-          <Write>판매하기</Write>
-        </a>
+
+        <Write>
+          <Link to="/input">판매하기</Link>
+        </Write>
       </Headerblock>
       <Headercartegory>
         <Categories />
